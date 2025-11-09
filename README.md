@@ -17,8 +17,9 @@ cd $HOME
 python3 -m venv $HOME/.venv
 # ...and activate it
 . $HOME/.venv/bin/activate.fish
-# make dit for litex core repositories and cd into it
-mkdir .litex/ && cd .litex/
+# cd into venv and make place for litex
+cd .venv
+mkdir litex/ && cd litex/
 # download LiteX setup script
 wget https://raw.githubusercontent.com/enjoy-digital/litex/master/litex_setup.py
 # make it executable
