@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-from litex_boards.platforms.terasic_de10nano import Platform
-from litex_boards.targets.terasic_de10nano import BaseSoC as LiteXBaseSoC
+from litex.build.parser import LiteXArgumentParser
 from litex.soc.integration.builder import Builder
 from litex.soc.integration.soc import SoCRegion
-from litex.build.parser import LiteXArgumentParser
+from litex_boards.platforms.terasic_de10nano import Platform
+from litex_boards.targets.terasic_de10nano import BaseSoC as LiteXBaseSoC
 
 
 class BaseSoC(LiteXBaseSoC):
@@ -22,13 +22,14 @@ def main():
     )
     # custom parser arguments: example
     parser.add_target_argument(
-        "--with-extra-ip", action="store_true", help="Enable extra IP"
+        "--with-extra-ip", action="store_false", help="Enable extra IP"
     )
 
     args = parser.parse_args()
 
     soc = BaseSoC(extra_ip=args.with_extra_ip, **parser.soc_argdict)
     builder = Builder(soc, **parser.builder_argdict)
+    builder.add_software_package("demo", "firmware/firmware.bin")
 
     if args.build:
         builder.build(**parser.toolchain_argdict)

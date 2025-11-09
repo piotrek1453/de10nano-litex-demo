@@ -2,14 +2,21 @@
 target-version = "py313"
 line-length = 79
 extend-exclude = ["build", "__pycache__"]
-src = [".", "./litex"]
+# To jest ważne:
+src = [".", "litex"]
 
-# Core rule selections.
-select = ["E", "F", "I", "UP"]
+[tool.ruff.lint]
+select = [
+  "E",
+  "F",
+  "I",
+  "UP",
+] # E=pycodestyle, F=pyflakes, I=isort, UP=pyupgrade
 ignore = []
 
 [tool.ruff.lint.isort]
-known-first-party = ["litex_soc"]
+# Dopisz te pierwsze-party:
+known-first-party = ["litex", "litex_boards", "litex_soc"]
 section-order = [
   "future",
   "standard-library",

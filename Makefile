@@ -7,6 +7,9 @@ setup_venv:
 	pip install --upgrade pip && \
 	pip install -r requirements.txt
 
+generate_compile_commands:
+	cd firmware && bear --output compile_commands.json --  make
+
 soc_help:
 	. $(VENV_BUILD); \
 	python3 litex_soc.py --help

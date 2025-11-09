@@ -206,6 +206,11 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# LITEX SPECIFIC
+# LITEX SPECIFIC + C
 build/
 litex/
+*.bin
+*.elf
+*.d
+*.o
+compile_commands.json
