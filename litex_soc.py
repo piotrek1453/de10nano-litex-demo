@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from litex_boards.platforms import terasic_de10nano
+from litex_boards.platforms.terasic_de10nano import Platform
 from litex_boards.targets.terasic_de10nano import BaseSoC as LiteXBaseSoC
 from litex.soc.integration.builder import Builder
 from litex.soc.integration.soc import SoCRegion
@@ -18,9 +18,9 @@ class BaseSoC(LiteXBaseSoC):
 
 def main():
     parser = LiteXArgumentParser(
-        platform=terasic_de10nano.Platform, description="Custom DE10-Nano SoC"
+        platform=Platform, description="Custom DE10-Nano SoC"
     )
-    # Dodaj własne argumenty
+    # custom parser arguments: example
     parser.add_target_argument(
         "--with-extra-ip", action="store_true", help="Enable extra IP"
     )

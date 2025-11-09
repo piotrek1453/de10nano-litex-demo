@@ -7,6 +7,10 @@ setup_venv:
 	pip install --upgrade pip && \
 	pip install -r requirements.txt
 
+soc_help:
+	. $(VENV_BUILD); \
+	python3 litex_soc.py --help
+
 build_litex_project:
 	. $(VENV_BUILD); \
 	python3 litex_soc.py --build
