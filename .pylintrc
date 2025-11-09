@@ -1,0 +1,12 @@
+[MASTER]
+# Add LiteX paths so Pylint can resolve imports.
+init-hook='import sys, os; sys.path.extend(["litex", "litex/litex", "litex/litex-boards"])'
+
+[MESSAGES CONTROL]
+disable=
+    missing-module-docstring,
+    missing-class-docstring,
+    missing-function-docstring
+
+[FORMAT]
+max-line-length=79

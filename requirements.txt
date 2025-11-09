@@ -1,0 +1,42 @@
+# LiteX base
+migen>=0.9.0
+litex>=0.7.0
+
+# LiteX Cores
+litedram
+liteeth
+litei2c
+liteiclink
+litejesd204b
+litepcie
+litesata
+litesdcard
+litescope
+litespi
+
+# LiteX Boards
+litex-boards
+
+# LiteX Misc
+pythondata-misc-tapcfg
+
+# CPUs
+pythondata-cpu-blackparrot
+pythondata-cpu-cv32e40p
+pythondata-cpu-cv32e41p
+pythondata-cpu-cva5
+pythondata-cpu-cva6
+pythondata-cpu-ibex
+pythondata-cpu-lm32
+pythondata-cpu-marocchino
+pythondata-cpu-microwatt
+pythondata-cpu-minerva
+pythondata-cpu-mor1kx
+pythondata-cpu-picorv32
+pythondata-cpu-rocket
+pythondata-cpu-serv
+pythondata-cpu-vexriscv
+
+# Software
+pythondata-software-picolibc
+pythondata-software-compiler_rt

@@ -1,0 +1,24 @@
+[tool.ruff]
+target-version = "py313"
+line-length = 79
+extend-exclude = ["build", "__pycache__"]
+src = [".", "./litex"]
+
+# Core rule selections.
+select = ["E", "F", "I", "UP"]
+ignore = []
+
+[tool.ruff.lint.isort]
+known-first-party = ["litex_soc"]
+section-order = [
+  "future",
+  "standard-library",
+  "third-party",
+  "first-party",
+  "local-folder",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"

@@ -1,11 +1,7 @@
 {
   "pythonVersion": "3.11",
-  "venvPath": "${env:HOME}",
-  "venv": ".venv",
   "typeCheckingMode": "basic",
   "extraPaths": [
-    "${env:HOME}/.venv/litex",
-    "${env:HOME}/.venv/litex/litex",
-    "${env:HOME}/.venv/litex-boards"
+    "./litex"
   ]
 }

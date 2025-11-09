@@ -1,4 +1,10 @@
-VENV_ACTIVATE = ${HOME}/.venv/bin/activate
+VENV_ACTIVATE = .venv/bin/activate
+
+setup_venv:
+	python -m venv --prompt litex_2025 .venv/ && \
+	. $(VENV_ACTIVATE) && \
+	pip install --upgrade pip && \
+	pip install -r requirements.txt
 
 build_litex_project:
 	@echo "Checking virtualenv..."
