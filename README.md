@@ -39,7 +39,7 @@ chmod +x litex_setup.py
 Build project by calling in root of repo:
 
 ```fish
-make build_litex project
+make build_litex_project
 ```
 
 next open 2 terminals and on first trigger serial firmware upload by running:
