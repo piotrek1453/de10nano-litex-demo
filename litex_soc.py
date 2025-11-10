@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-from litex.build.parser import LiteXArgumentParser
+from os import getcwd, path
+
 from litex.soc.integration.builder import Builder
+from litex.soc.integration.common import get_mem_data
 from litex.soc.integration.soc import SoCRegion
-from litex_boards.platforms.terasic_de10nano import Platform
-from litex_boards.targets.terasic_de10nano import BaseSoC as LiteXBaseSoC
+from litex_boards.platforms.sipeed_tang_nano_9k import Platform
+from litex_boards.targets.sipeed_tang_nano_9k import BaseSoC as LiteXBaseSoC
 
 
 class BaseSoC(LiteXBaseSoC):
@@ -17,6 +19,10 @@ class BaseSoC(LiteXBaseSoC):
 
 
 def main():
+    from litex.build.parser import LiteXArgumentParser
+
+    current_path = getcwd()
+
     parser = LiteXArgumentParser(
         platform=Platform, description="Custom DE10-Nano SoC"
     )
@@ -29,7 +35,9 @@ def main():
 
     soc = BaseSoC(extra_ip=args.with_extra_ip, **parser.soc_argdict)
     builder = Builder(soc, **parser.builder_argdict)
-    builder.add_software_package("demo", "firmware/firmware.bin")
+    builder.add_software_package(
+        path.join(current_path, "demo"),
+    )
 
     if args.build:
         builder.build(**parser.toolchain_argdict)
