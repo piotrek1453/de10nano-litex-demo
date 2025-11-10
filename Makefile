@@ -16,8 +16,11 @@ soc_help:
 
 build_litex_project:
 	. $(VENV_BUILD); \
-	python3 litex_soc.py --build
+	python3 litex_soc.py --build --integrated-main-ram-size 0x8000
 
 load_litex_project:
 	. $(VENV_BUILD); \
 	python3 litex_soc.py --load
+
+bare_metal_demo:
+	litex_bare_metal_demo --build-path build/terasic_de10nano --mem main_ram --with-cxx 
