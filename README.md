@@ -33,3 +33,23 @@ chmod +x litex_setup.py
 # install LiteX, this'll take a while
 ./litex_setup.py --init --install --config=full
 ```
+
+## Flashing firmware
+
+Build project by calling in root of repo:
+
+```fish
+make build_litex project
+```
+
+next open 2 terminals and on first trigger serial firmware upload by running:
+
+```fish
+make load_sw
+```
+
+and on second one upload the SoC:
+
+```fish
+make load_litex_project
+```

@@ -22,5 +22,10 @@ load_litex_project:
 	. $(VENV_BUILD); \
 	python3 litex_soc.py --load
 
+load_sw:
+	. $(VENV_BUILD); \
+	litex_term /dev/ttyACM0 --speed 115200 --serial-boot --safe --kernel demo/demo.bin
+
 bare_metal_demo:
+	. $(VENV_BUILD); \
 	litex_bare_metal_demo --build-path build/terasic_de10nano --mem main_ram --with-cxx 
