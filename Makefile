@@ -22,10 +22,9 @@ load_litex_project:
 	. $(VENV_BUILD); \
 	python3 litex_soc.py --load
 
-load_hw_and_sw:
+load_sw:
 	. $(VENV_BUILD); \
-	litex_term /dev/ttyUSB1 --speed 115200 --serial-boot --safe --kernel demo/demo.bin & \
-	make load_litex_project
+	litex_term /dev/ttyUSB1 --speed 115200 --serial-boot --safe --kernel demo/demo.bin
 
 bare_metal_demo:
 	. $(VENV_BUILD); \

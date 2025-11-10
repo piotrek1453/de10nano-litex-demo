@@ -1,9 +1,9 @@
-INCLUDE ../build/sipeed_tang_nano_9k/software/include/generated/output_format.ld
+INCLUDE generated/output_format.ld
 ENTRY(_start)
 
 __DYNAMIC = 0;
 
-INCLUDE ../build/sipeed_tang_nano_9k/software/include/generated/regions.ld
+INCLUDE generated/regions.ld
 
 SECTIONS
 {

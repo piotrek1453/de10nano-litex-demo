@@ -209,7 +209,6 @@ __marimo__/
 # LITEX SPECIFIC + C
 build/
 litex/
-*.bin
 *.elf
 *.d
 *.o

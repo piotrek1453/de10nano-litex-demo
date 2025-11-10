@@ -1,4 +1,7 @@
-BUILD_DIR?=../build
+BUILD_DIR?=../build/
+
+include $(BUILD_DIR)/software/include/generated/variables.mak
+include $(SOC_DIRECTORY)/software/common.mak
 
 OBJECTS   = donut.o helloc.o crt0.o main.o
 ifdef WITH_CXX
