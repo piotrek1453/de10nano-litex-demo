@@ -16,11 +16,16 @@ soc_help:
 
 build_litex_project:
 	. $(VENV_BUILD); \
-	python3 litex_soc.py --build --integrated-main-ram-size 0x8000
+	python3 litex_soc.py --build 
 
 load_litex_project:
 	. $(VENV_BUILD); \
 	python3 litex_soc.py --load
+
+load_hw_and_sw:
+	. $(VENV_BUILD); \
+	litex_term /dev/ttyUSB1 --speed 115200 --serial-boot --safe --kernel demo/demo.bin & \
+	make load_litex_project
 
 bare_metal_demo:
 	. $(VENV_BUILD); \
