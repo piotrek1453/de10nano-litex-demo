@@ -16,8 +16,12 @@ soc_help:
 
 build_litex_project:
 	. $(VENV_BUILD); \
-	python3 litex_soc.py --build
+	python3 litex_soc.py --build --integrated-main-ram-size 0x8000
 
 load_litex_project:
 	. $(VENV_BUILD); \
 	python3 litex_soc.py --load
+
+bare_metal_demo:
+	. $(VENV_BUILD); \
+	litex_bare_metal_demo --build-path build/sipeed_tang_nano_9k --mem main_ram --with-cxx 
