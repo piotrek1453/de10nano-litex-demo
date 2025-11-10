@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from litex.build.parser import LiteXArgumentParser
 from litex.soc.integration.builder import Builder
 from litex.soc.integration.soc import SoCRegion
 from litex_boards.platforms.terasic_de10nano import Platform
@@ -8,7 +7,12 @@ from litex_boards.targets.terasic_de10nano import BaseSoC as LiteXBaseSoC
 
 class BaseSoC(LiteXBaseSoC):
     def __init__(self, extra_ip: bool, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__(
+            with_led_chaser=True,
+            with_mister_sdram=False,
+            with_mister_video_terminal=False,
+            **kwargs,
+        )
         if extra_ip:
             # example additional ip: new memory region
             self.bus.add_region(
@@ -17,6 +21,8 @@ class BaseSoC(LiteXBaseSoC):
 
 
 def main():
+    from litex.build.parser import LiteXArgumentParser
+
     parser = LiteXArgumentParser(
         platform=Platform, description="Custom DE10-Nano SoC"
     )
@@ -29,7 +35,6 @@ def main():
 
     soc = BaseSoC(extra_ip=args.with_extra_ip, **parser.soc_argdict)
     builder = Builder(soc, **parser.builder_argdict)
-    builder.add_software_package("demo", "firmware/firmware.bin")
 
     if args.build:
         builder.build(**parser.toolchain_argdict)
